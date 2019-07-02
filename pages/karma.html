@@ -1,0 +1,6 @@
+<h3>ImmKarma</h3>
+<p>ImmKarma is how we incentivize early participation in ImmDomains governance. For each poll you vote in, you'll receive 1 ImmKarma.</p>
+<div ng-controller="KarmaController">
+  <a ng-show="!me" ng-click="login()">Login to view your ImmKarma</a>
+  <span ng-show="me">You currently have {{me.getKarma()}} ImmKarma</span>
+</div>

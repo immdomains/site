@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>ImmDomains</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha256-WAgYcAck1C1/zEl5sBl5cfyhxtLgKGdpI3oKyJffVRI=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono&display=swap">
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body ng-app="app">
+    <div id="container">
+      <div id="header">
+        <h1>.imm</h1>
+        <h2>Immutable Ethereum Domains</h2>
+        <p>⚠️ ImmDomains is currently in beta pending a security audit</p>
+        <div ng-controller="DomainController">
+          <div id="domain-input-group">
+            <input
+              id="domain-input"
+              type="text"
+              value=""
+              autofocus
+              ng-model="domain"
+              autocomplete="off"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
+              ><span id="domain-tld">.imm</span>
+          </div>
+          <div id="domain-result" class="ng-hide" ng-show="true">{{domainResult}}</div>
+        </div>
+      </div>
+      <div id="content" ng-controller="ContentController" class="ng-hide" ng-show="true">
+        <div class="divider">
+          ============================================================================================================================
+        </div>
+        <div>
+          <a
+            class="content-link"
+            ng-repeat="page in pages"
+            ng-class="{ selected: pageName === page.name ? true : false }"
+            ng-click="setPageName(page.name)"
+            >
+            [<span class="asterisk">*</span>] {{page.title}}
+          </a>
+        </div>
+        <div class="divider">
+          ============================================================================================================================
+        </div>
+        <div ng-include="pageUrl"></div>
+      </div>
+    </div>
+    <script type="text/javascript" src="./lib/web3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js" integrity="sha256-LSUpTY0kkXGKvcBC9kbmgibmx3NVVgJvAEfTZbs51mU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js" integrity="sha256-23hi0Ag650tclABdGCdMNSjxvikytyQ44vYGo9HyOrU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.7.8/angular-sanitize.min.js" integrity="sha256-rkC3YaCKtbLotg8lQpxqYki+DDOVXjcA5wTSxjRlI0E=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ng-showdown/1.1.0/ng-showdown.min.js" integrity="sha256-9bwOmdcDBxHlhIMpldChdtUiq93qFKpWlr2TGdL/daw=" crossorigin="anonymous"></script>
+    <script type="module" src="/app/app.js"></script>
+  </body>
+</html>

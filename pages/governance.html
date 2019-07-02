@@ -1,0 +1,26 @@
+<h3>Governance</h3>
+
+<p>ImmDomains are forever. We'll eventually open them to to the public, but for now, domains can only be registered by the ImmDomains team.</p>
+<p>Help us govern the initial allocation of ImmDomains, and you'll earn ImmKarma.</p>
+
+<h3>Polls 🗳️</h3>
+
+<div ng-controller="SurveysController">
+  <table>
+    <tbody ng-repeat="survey in surveys">
+      <tr>
+        <td>#{{survey.id}}</td>
+        <td colspan="3" markdown-to-html="survey.questionMd"></td>
+      </tr>
+      <tr ng-repeat="answerSummary in survey.answerSummaries">
+        <td></td>
+        <td>{{answerSummary.name}}</td>
+        <td>{{answerSummary.count}} Votes</td>
+        <td style="text-align:right;">
+          <span ng-show="survey.meAnswerId === answerSummary.id">✔️ Voted</span>
+          <a ng-show="survey.meAnswerId !== answerSummary.id" ng-click="vote(survey.id, answerSummary.id)">Vote</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  overflow-y: scroll;
+}
+body, input {
+  font-family: 'Roboto Mono', monospace;
+}
+body {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 12px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border-radius: 0;
+}
+table{
+  width: 100%;
+}
+td{
+  border-bottom: 1px solid #eee;
+  padding: 10px 5px;
+}
+td:first-child {
+  padding-left: 0;
+}
+td:last-child {
+  padding-right: 0;
+}
+a {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.ng-hide {
+  opacity: 0;
+}
+
+#header {
+  text-align: center;
+}
+#container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+h1 {
+  text-align: center;
+  background-color: black;
+  color: white;
+  display: block;
+  padding: 38px 20px 35px 10px;
+  width: 109px;
+  margin: 0 auto;
+}
+#domain-input-group {
+  margin-top: 40px;
+  overflow-x: visible;
+  white-space: nowrap;
+  vertical-align: top;
+  border: 2px solid #333;
+  height: 48px;
+  overflow-y: hidden;
+  background-color: #333;
+}
+#domain-input, #domain-tld {
+  font-size: 24px;
+  display: inline-block;
+  padding: 8px;
+  height: 44px;
+}
+#domain-input {
+  outline: none;
+  width: calc(100% - 80px);
+  border-right: 2px solid black;
+  border: none;
+}
+#domain-tld {
+  text-align: left;
+  color: white;
+  width: 80px;
+  border-left-width: 0;
+}
+#domain-result {
+  margin-top: 20px;
+  height: 1em;
+}
+#features {
+  text-align: left;
+}
+#content {
+  text-align: left;
+  margin-top: 40px;
+}
+.content-link {
+  display: block;
+  text-decoration: none;
+}
+.content-link:not(.selected) .asterisk {
+  opacity: 0;
+}
+.content-link:not(.selected):hover .asterisk {
+  opacity: .5;
+}
+.content-link.selected .asterisk {
+  opacity: 1;
+}
+.divider {
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+}
+pre {
+  padding: 1em;
+  background-color: #eee;
+  overflow-x: scroll;
+}
+.content-content { display: none }
+</style>
