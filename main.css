@@ -30,8 +30,10 @@ table{
   font-size: inherit;
   width: 100%;
 }
-td{
+tr {
   border-bottom: 1px solid #eee;
+}
+td{
   padding: 10px 5px;
   vertical-align: top;
 }
