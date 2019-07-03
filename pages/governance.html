@@ -6,6 +6,9 @@
 <h3>Polls 🗳️</h3>
 
 <div ng-controller="SurveysController">
+  <div ng-show="!surveys">
+    ⏳ Loading...
+  </div>
   <table>
     <tbody ng-repeat="survey in surveys">
       <tr>
