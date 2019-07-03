@@ -35,16 +35,20 @@ class AuthManager {
       return null
     }
 
-    const meJson = await govApiClient.fetch('/me/', {
+    const mePojo = await govApiClient.fetch('/me/', {
       headers: this.getHeaders()
     })
 
-    return new Me(meJson, userSecret)
+    if (mePojo === null) {
+      return null
+    }
+
+    return new Me(mePojo, userSecret)
   }
 
   login() {
     const doSubscribe = confirm('You\'ll need to login with Reddit. Would you also like to subcribe to /r/immdomains?')
-    window.location = `http://localhost:5000/auth/?callbackUrl=${encodeURIComponent(window.location.origin)}&subscribe=${doSubscribe ? 'yes' : 'no'}`
+    window.location = `${govApiClient.apiUrl}/auth/?callbackUrl=${encodeURIComponent(window.location.origin)}&subscribe=${doSubscribe ? 'yes' : 'no'}`
 
   }
 }

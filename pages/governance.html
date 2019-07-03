@@ -16,9 +16,14 @@
         <td></td>
         <td>{{answerSummary.name}}</td>
         <td>{{answerSummary.count}} Votes</td>
-        <td style="text-align:right;">
-          <span ng-show="survey.meAnswerId === answerSummary.id">✔️ Voted</span>
-          <a ng-show="survey.meAnswerId !== answerSummary.id" ng-click="vote(survey.id, answerSummary.id)">Vote</a>
+        <td style="text-align:right; width: 120px; height: 3em;">
+          <div ng-show="!isUpdating">
+            <span ng-show="survey.meAnswerId === answerSummary.id">✔️ Voted</span>
+            <a ng-show="survey.meAnswerId !== answerSummary.id" ng-click="vote(survey.id, answerSummary.id)">Vote</a>
+          </div>
+          <div ng-show="isUpdating">
+            ⏳
+          </div>
         </td>
       </tr>
     </tbody>

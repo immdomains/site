@@ -4,6 +4,7 @@ import authManager from '../authManager.js'
 export default async function SurveysController($scope) {
 
   async function refresh() {
+    $scope.isUpdating = true
     $scope.me = await authManager.fetchMe()
     $scope.surveys = await govApiClient.fetchSurveys()
 
@@ -19,18 +20,21 @@ export default async function SurveysController($scope) {
         }
       })
     }
+
+    $scope.isUpdating = false
     $scope.$apply()
   }
 
   refresh()
 
   $scope.vote = async function setVote(surveyId, answerId) {
+    $scope.isUpdating = true
     const me = await authManager.fetchMe()
     if (!me) {
-      authManager.login()
+      return authManager.login()
     }
     await me.setVote(surveyId, answerId)
 
-    refresh()
+    await refresh()
   }
 }

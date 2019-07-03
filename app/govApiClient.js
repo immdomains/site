@@ -1,6 +1,9 @@
 class GovApiClient {
+  constructor() {
+    this.apiUrl = window.location.hostname === 'localhost' ? 'http://localhost:5000' : 'https://imm-gov-api.herokuapp.com'
+  }
   async fetch(endpoint, options) {
-    const response = await fetch(`http://localhost:5000${endpoint}`, options)
+    const response = await fetch(`${this.apiUrl}${endpoint}`, options)
     return response.json()
   }
   async post(endpoint, body = {}, _options = {}) {

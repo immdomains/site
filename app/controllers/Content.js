@@ -15,6 +15,9 @@ export default function ContentController($scope) {
     }, {
       name: 'web3',
       title: 'Web3.js Integration'
+    }, {
+      name: 'about',
+      title: 'About'
     }
   ]
 
