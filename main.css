@@ -27,6 +27,7 @@ input {
   border-radius: 0;
 }
 table{
+  font-size: inherit;
   width: 100%;
 }
 td{
