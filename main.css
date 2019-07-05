@@ -130,5 +130,10 @@ pre {
 .survey:hover {
   background-color: #fff580;
 }
-
+.survey-question p {
+  margin-bottom: 0;
+}
+.survey-link {
+  font-size: .8em;
+}
 </style>

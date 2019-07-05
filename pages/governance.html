@@ -18,7 +18,10 @@
       >
       <tr>
         <td>#{{survey.id}}</td>
-      <td colspan="3" markdown-to-html="survey.questionMd" class="survey-question"></td>
+        <td colspan="3">
+          <div markdown-to-html="survey.questionMd" class="survey-question"></div>
+          <div class="survey-link">🔗 <a ng-href="https://imm.domains/#!/polls/{{survey.id}}">https://imm.domains/#!/polls/{{survey.id}}</a></div>
+        </td>
       </tr>
       <tr ng-repeat="answerSummary in survey.answerSummaries">
         <td></td>
