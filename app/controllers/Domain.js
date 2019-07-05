@@ -4,13 +4,23 @@ import fetchAddressHexPrefixed from '../utils/fetchAddressHexPrefixed.js'
 import delay from '../utils/delay.js'
 
 const nullAddress = '0x0000000000000000000000000000000000000000'
-const defaultDomainAscii = 'weth'
+let defaultDomainAscii = 'weth'
+
+function setDefaultDomainAscii() {
+  const hashParts = window.location.hash.split('/')
+  if (hashParts[1] !== 'domains') {
+    return
+  }
+  defaultDomainAscii = hashParts[2]
+}
 
 let lastDomainAscii
 
 export default function DomainController($scope) {
 
   $scope.domain = ''
+
+  setDefaultDomainAscii()
 
   $scope.$watch('domain', async (domainAscii) => {
     lastDomainAscii = domainAscii
